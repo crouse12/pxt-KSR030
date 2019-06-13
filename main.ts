@@ -258,6 +258,52 @@ namespace KSR030 {
             
     }
 
+    //% blockId=KSR030_Servo_Car1
+    //% block="Servo_Car %index|speed %speed1"
+    //% weight=88
+    //% speed1.min=0 speed1.max=90
+    export function Servo_Car1(index: RunState, speed1: number): void {
+        let l_pulselen=0;
+        let r_pulselen=0;
+        if(!initialized){
+			init()
+		}
+        
+        switch (index) {
+            case RunState.Forward: 
+                l_pulselen = servo_map(90+speed1, 0, 180, SERVOMIN, SERVOMAX);
+                r_pulselen = servo_map(90-speed1, 0, 180, SERVOMIN, SERVOMAX);
+                setPwm(ServoNum.S8, 0, l_pulselen);
+                setPwm(ServoNum.S9, 0, r_pulselen);
+                break;
+            case RunState.Back: 
+                l_pulselen = servo_map(90-speed1, 0, 180, SERVOMIN, SERVOMAX);
+                r_pulselen = servo_map(90+speed1, 0, 180, SERVOMIN, SERVOMAX);
+                setPwm(ServoNum.S8, 0, l_pulselen);
+                setPwm(ServoNum.S9, 0, r_pulselen);
+                break;
+            case RunState.Left: 
+                l_pulselen = servo_map(90+speed1/4, 0, 180, SERVOMIN, SERVOMAX);
+                r_pulselen = servo_map(90-speed1, 0, 180, SERVOMIN, SERVOMAX);
+                setPwm(ServoNum.S8, 0, l_pulselen);
+                setPwm(ServoNum.S9, 0, r_pulselen);
+                break;
+            case RunState.Right: 
+                l_pulselen = servo_map(90+speed1, 0, 180, SERVOMIN, SERVOMAX);
+                r_pulselen = servo_map(90-speed1/4, 0, 180, SERVOMIN, SERVOMAX);
+                setPwm(ServoNum.S8, 0, l_pulselen);
+                setPwm(ServoNum.S9, 0, r_pulselen);
+                break;
+            case RunState.Stop: 
+                l_pulselen = servo_map(90, 0, 180, SERVOMIN, SERVOMAX);
+                r_pulselen = servo_map(90, 0, 180, SERVOMIN, SERVOMAX);
+                setPwm(ServoNum.S8, 0, l_pulselen);
+                setPwm(ServoNum.S9, 0, r_pulselen);
+                break;
+            
+        }
+    }	
+	
     //% blockId=KSR030_Servo_Car
     //% block="Servo_Car %index|L_speed %lspeed|R_speed %rspeed"
     //% weight=88
