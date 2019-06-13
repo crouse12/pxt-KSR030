@@ -350,6 +350,26 @@ namespace KSR030 {
         }
     }
 
+
+	
+    //% blockId=KSR030_Servo_Car2
+    //% block="Servo_Car L_speed %lspeed|R_speed %rspeed"
+    //% weight=88
+    //% lspeed.min=-90 lspeed.max=90 rspeed.min=-90 rspeed.max=90
+    export function Servo_Car(lspeed: number, rspeed: number): void {
+        let l_pulselen=0;
+        let r_pulselen=0;
+        if(!initialized){
+			init()
+		} 
+        l_pulselen = servo_map(90+lspeed, 0, 180, SERVOMIN, SERVOMAX);
+        r_pulselen = servo_map(90-rspeed, 0, 180, SERVOMIN, SERVOMAX);
+        setPwm(ServoNum.S8, 0, l_pulselen);
+        setPwm(ServoNum.S9, 0, r_pulselen);
+                
+    }
+	
+	
     //% blockId=KSR030_Motor_Car
     //% block="Motor_Car %index|L_speed %lspeed|R_speed %rspeed"
     //% weight=87
