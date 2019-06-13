@@ -19,6 +19,7 @@
 	"KSR030.Motor|block": "馬達 %channel|速度 %speed",
 	"KSR030.Servo_Car|block": "舵機車種 %index|左邊速度 %lspeed|右邊速度 %rspeed",
 	"KSR030.Servo_Car1|block": "舵機車種 %index|速度 %speed1",
+	"KSR030.Servo_Car|block": "舵機車種 左邊速度 %lspeed|右邊速度 %rspeed",
 	"KSR030.Motor_Car|block": "馬達車種 %index|左邊速度 %lspeed|右邊速度 %rspeed"
 	
 }
