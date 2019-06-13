@@ -284,12 +284,12 @@ namespace KSR030 {
                 break;
             case RunState.Left: 
                 l_pulselen = servo_map(90+speed1/4, 0, 180, SERVOMIN, SERVOMAX);
-                r_pulselen = servo_map(90-speed1, 0, 180, SERVOMIN, SERVOMAX);
+                r_pulselen = servo_map(90, 0, 180, SERVOMIN, SERVOMAX);
                 setPwm(ServoNum.S8, 0, l_pulselen);
                 setPwm(ServoNum.S9, 0, r_pulselen);
                 break;
             case RunState.Right: 
-                l_pulselen = servo_map(90+speed1, 0, 180, SERVOMIN, SERVOMAX);
+                l_pulselen = servo_map(90, 0, 180, SERVOMIN, SERVOMAX);
                 r_pulselen = servo_map(90-speed1/4, 0, 180, SERVOMIN, SERVOMAX);
                 setPwm(ServoNum.S8, 0, l_pulselen);
                 setPwm(ServoNum.S9, 0, r_pulselen);
