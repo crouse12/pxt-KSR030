@@ -356,7 +356,7 @@ namespace KSR030 {
     //% block="Servo_Car L_speed %lspeed|R_speed %rspeed"
     //% weight=88
     //% lspeed.min=-90 lspeed.max=90 rspeed.min=-90 rspeed.max=90
-    export function Servo_Car(lspeed: number, rspeed: number): void {
+    export function Servo_Car2(lspeed: number, rspeed: number): void {
         let l_pulselen=0;
         let r_pulselen=0;
         if(!initialized){
